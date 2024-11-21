@@ -1,0 +1,140 @@
+/* ================================================  
+ リセットの記述
+================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh; /* Fallback */
+  min-height: calc(var(--vh, 1vh) * 100);
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ================================================  
+ フォントの読み込み
+================================================ */
+
+@font-face {
+  font-family: 'HannnariMincho';
+  font-weight: 400;
+  src: url(./HannariMincho-Regular.otf) format('opentype');
+}
+
+/* ================================================  
+ スタイルの適用(モバイルファーストで記述)
+================================================ */
+body {
+  background-color: #fff;
+  color: #583a3a;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'NotoSansJp', sans-serif;
+  overscroll-behavior: none;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+
+h4 {
+  font-size: 1.12em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.75em;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  margin-top: 0 !important;
+}
+
+/* メディアクエリ用の表示・非表示 */
+.sm_only {
+  display: block !important;
+}
+.md_only,
+.lg_only {
+  display: none !important;
+}
