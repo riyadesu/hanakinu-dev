@@ -80,6 +80,12 @@ select {
   src: url(./HannariMincho-Regular.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'AdobeGaramondPro';
+  font-weight: 400;
+  src: url(./AGaramondPro-Regular.otf) format('opentype');
+}
+
 /* ================================================  
  スタイルの適用(モバイルファーストで記述)
 ================================================ */
@@ -88,7 +94,7 @@ body {
   color: #583a3a;
   width: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: 'NotoSansJp', sans-serif;
+  font-family: 'HannnariMincho', sans-serif;
   overscroll-behavior: none;
 }
 
@@ -130,11 +136,143 @@ html {
   margin-top: 0 !important;
 }
 
-/* メディアクエリ用の表示・非表示 */
 .sm_only {
   display: block !important;
 }
 .md_only,
 .lg_only {
   display: none !important;
+}
+
+/*
+* 共通コンポーネントスタイル
+*/
+
+.el_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 185px;
+  border-radius: 10px;
+  background-color: #9f4750;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  font-family: 'AdobeGaramondPro', serif;
+  gap: 18px;
+}
+
+.el_btnImg,
+.el_btnArrow {
+  height: fit-content;
+  line-height: 1;
+}
+
+.el_btnImg svg,
+.el_btnArrow svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* .el_btnWithImg .el_btnImg svg {
+  position: absolute;
+  top: 50%;
+  left: 36px;
+  transform: translateY(-50%);
+}
+
+.el_btnWithArrow .el_btnArrow svg {
+  position: absolute;
+  top: 50%;
+  right: 36px;
+  transform: translateY(-50%);
+}  */
+
+.el_secPadding {
+  padding-inline: 15px;
+}
+
+.bl_heading h2 {
+  font-size: 30px;
+  line-height: 42px;
+  font-family: 'AdobeGaramondPro', serif;
+  font-weight: 500;
+  color: #8b7878;
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.bl_heading p {
+  font-size: 11px;
+  line-height: 13px;
+  font-family: 'HannariMincho', serif;
+  display: flex;
+  align-items: center;
+  gap: 4.6px;
+  letter-spacing: 0.1em;
+}
+
+.bl_heading span {
+  display: block;
+  height: 1px;
+  width: 21px;
+  background-color: #b9a9a8;
+}
+
+@media screen and (min-width: 768px) {
+  .sm_only {
+    display: none !important;
+  }
+  .md_only,
+  .lg_only {
+    display: block !important;
+  }
+
+  .el_mdWidth {
+    max-width: 1106px;
+    margin-inline: auto;
+    padding-inline: 60px;
+  }
+
+  .el_secPadding {
+    padding-inline: 0;
+  }
+
+  .bl_heading h2 {
+    font-size: 62px;
+    line-height: 86px;
+    margin-bottom: 13px;
+  }
+
+  .bl_heading p {
+    font-size: 14px;
+    line-height: 17px;
+    gap: 15.5px;
+  }
+
+  .bl_heading span {
+    width: 49px;
+  }
+
+  .el_btn {
+    font-size: 14px;
+    line-height: 20px;
+    height: 73px;
+    max-width: 294px;
+    width: 100%;
+  }
+
+  .el_btnImg svg,
+  .el_btnArrow svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .el_mdWidth {
+    padding-inline: 0;
+  }
 }
