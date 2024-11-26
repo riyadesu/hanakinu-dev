@@ -86,6 +86,12 @@ select {
   src: url(./AGaramondPro-Regular.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'IvyOra';
+  font-weight: 400;
+  src: url(./IvyOraDisplay-Regular.ttf) format('truetype');
+}
+
 /* ================================================  
  スタイルの適用(モバイルファーストで記述)
 ================================================ */
@@ -96,6 +102,10 @@ body {
   -webkit-text-size-adjust: 100%;
   font-family: 'HannnariMincho', sans-serif;
   overscroll-behavior: none;
+}
+
+body.isOpen {
+  overflow: hidden;
 }
 
 h1 {
@@ -159,7 +169,7 @@ html {
   color: #fff;
   font-size: 12px;
   line-height: 16px;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.1em;
   font-family: 'AdobeGaramondPro', serif;
   gap: 18px;
 }
@@ -175,20 +185,6 @@ html {
   width: 17px;
   height: 17px;
 }
-
-/* .el_btnWithImg .el_btnImg svg {
-  position: absolute;
-  top: 50%;
-  left: 36px;
-  transform: translateY(-50%);
-}
-
-.el_btnWithArrow .el_btnArrow svg {
-  position: absolute;
-  top: 50%;
-  right: 36px;
-  transform: translateY(-50%);
-}  */
 
 .el_secPadding {
   padding-inline: 15px;

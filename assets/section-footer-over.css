@@ -1,3 +1,6 @@
+.ly_footer {
+  margin-top: 100px;
+}
 /*
 * Plan
 */
@@ -94,6 +97,7 @@
 
 .bl_footerShop_img > img {
   border-radius: 5px;
+  max-width: 100%;
 }
 
 .ly_footerShop .el_bgPetals {
@@ -297,6 +301,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .ly_footer {
+    margin-top: 150px;
+  }
+
   /*
   * Plan
   */
@@ -350,6 +358,9 @@
     grid-template-rows: auto 1fr;
     column-gap: 8%;
     row-gap: 80px;
+    max-width: 1186px;
+    margin-right: 0;
+    padding-inline-end: 0;
   }
 
   .bl_footerShop .bl_heading {

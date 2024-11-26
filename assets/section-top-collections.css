@@ -1,0 +1,253 @@
+.bl_topCollections_sm {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #573a3a;
+  font-size: 14px;
+}
+
+.bl_topCollections_sm li {
+  width: 50%;
+  height: 40px;
+  border-bottom: 1px solid #573a3a;
+}
+
+.bl_topCollections_sm li:nth-child(odd) {
+  border-right: 1px solid #573a3a;
+}
+
+.bl_topCollections_sm li a {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.bl_topCollections_sm li a span {
+  display: flex;
+  width: 100%;
+  max-width: 112px;
+  margin-inline: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ly_topCollections {
+  max-width: 1270px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.bl_topCollections_md {
+  display: none;
+}
+
+.ly_topCollections_showcase {
+  margin-inline: 15px;
+}
+
+.bl_topShowcase {
+  margin-top: 45px;
+}
+
+.bl_topShowcaseHeading {
+  font-size: 30px;
+  margin-bottom: 22px;
+  color: #583a3a;
+}
+
+.bl_topShowcaseList {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 9px;
+  row-gap: 21px;
+}
+
+.bl_topShowcase_product {
+  width: calc(50% - 4.5px);
+}
+
+.bl_topShowcase_productImg img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.bl_topShowcase_product h4 {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 19px;
+  color: #583a3a;
+  line-clamp: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bl_topShowcase_product p {
+  font-family: 'IvyOra';
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  margin-top: 5px;
+}
+
+.bl_topShowcase .el_btn {
+  margin-top: 21px;
+  margin-inline: auto;
+}
+
+/*
+  * calendar
+  */
+
+#calendar-container {
+  font-family: 'HannnariMincho', sans-serif;
+  color: #333;
+  margin-top: 20px;
+  padding: 12px;
+  max-width: 350px;
+  margin-inline: auto;
+}
+
+#calendar-container h2 {
+  text-align: center;
+  background: #fedb7f;
+  margin-top: 20px;
+  font-size: 16px;
+  padding-block: 12px;
+}
+
+#calendar-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+#calendar-container th,
+#calendar-container td {
+  padding: 6px;
+  text-align: center;
+  width: 14.28%;
+  border: 2px solid #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#calendar-container th {
+  background-color: #fff;
+}
+
+#calendar-container .holiday {
+  background-color: #f1c231;
+}
+
+.bl_calendarHint {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.bl_calendarHint span {
+  color: #bf9109;
+}
+
+@media screen and (min-width: 768px) {
+  .bl_topCollections_sm {
+    display: none;
+  }
+
+  .bl_topCollections_md {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 35px;
+    font-size: 16px;
+  }
+
+  .bl_topCollections_md li:first-child {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .bl_topCollections_md li {
+    height: 67px;
+    width: calc(100% - 38px);
+    border-bottom: 1px solid #707070;
+  }
+
+  .bl_topCollections_md li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  .bl_topCollections_md li a svg {
+    height: 14px;
+    width: auto;
+  }
+
+  .ly_topCollections {
+    margin-top: 94px;
+    max-width: 1270px;
+    column-gap: 42px;
+    padding-inline: 20px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 25% 1fr;
+  }
+
+  .bl_topShowcaseList {
+    column-gap: 28px;
+    flex-wrap: nowrap;
+  }
+
+  .bl_topShowcase:first-child {
+    margin-top: 0;
+  }
+  .bl_topShowcase:first-child {
+    margin-top: 0;
+  }
+  .ly_topCollections_showcase {
+    margin-inline: 0;
+  }
+
+  .bl_topShowcase_product {
+    width: calc((100% - 56px) / 3);
+  }
+
+  .bl_topShowcase_product:last-child {
+    display: none;
+  }
+
+  .bl_topShowcase_product h4,
+  .bl_topShowcase_product p {
+    font-size: 18px;
+  }
+
+  .bl_topShowcase .el_btn {
+    margin-top: 49px;
+  }
+
+  .bl_bannerMin {
+    margin-block: 40px 23px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .ly_topCollections {
+    padding-inline: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  #calendar-container th,
+  #calendar-container td {
+    padding: 0;
+  }
+}

@@ -1,0 +1,135 @@
+.ly_header {
+  height: 60px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.bl_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.bl_headerIcons {
+  display: flex;
+  gap: 30px;
+}
+
+.el_hamb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 101;
+}
+
+.el_hamb span {
+  display: block;
+  width: 43px;
+  height: 1px;
+  background-color: #583a3a;
+}
+
+.el_hamb span:last-child {
+  width: 21px;
+}
+
+.bl_headerNav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 60px 15px 120px 15px;
+  width: 70%;
+  max-width: 266px;
+  height: 100vh;
+  overflow: scroll;
+  z-index: 100;
+}
+
+.bl_headerNav.isOpen {
+  display: flex;
+}
+
+.el_hambClose {
+  height: 36px;
+  justify-content: center;
+  align-self: flex-end;
+  position: fixed;
+  top: 12px;
+  right: 15px;
+}
+
+.el_hambClose span {
+  width: 21px;
+}
+
+.el_hambClose.isOpen span:first-child {
+  transform: rotate(45deg) translate(5px, 4px);
+}
+
+.el_hambClose.isOpen span:last-child {
+  transform: rotate(-45deg) translate(4px, -2.5px);
+}
+
+.bl_headerList {
+  margin-top: 32px;
+  margin-bottom: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.bl_headerBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #fff;
+}
+
+.bl_headerBtns a {
+  height: 42px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.bl_headerBtns a:first-child {
+  background-color: #55a86c;
+}
+
+.bl_headerBtns a:last-child {
+  background-color: #9f4750;
+}
+
+.bl_headerSns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-block: 24px;
+}
+
+.bl_headerSns path {
+  fill: #ac9c9c;
+}
+
+.bl_headerBanner {
+  border-radius: 14px;
+  overflow: hidden;
+  width: 210px;
+  height: 73px;
+  flex-shrink: 0;
+  margin-inline: 0;
+}

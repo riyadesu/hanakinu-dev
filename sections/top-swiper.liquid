@@ -1,0 +1,69 @@
+{{ 'section-top-swiper.css' | asset_url | stylesheet_tag }}
+
+<section class="ly_topSwiper">
+  <div class="swiper bl_topSwiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url }}"
+              alt=""
+              width=""
+              height="">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination sm_only"></div>
+  </div>
+  <div class="swiper bl_thumbnailSwiper md_only">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide">
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url }}"
+              alt=""
+              width=""
+              height="">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="bl_topFlower md_only">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0909/3290/4241/files/top-flower.svg?v=1732525363"
+      alt=""
+      width=""
+      height="">
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "スワイパースライダー",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "スライド",
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "画像",
+            "id": "image",
+            "info": "スライド用の画像を選択してください"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "スワイパースライダー",
+        "category": "カスタム"
+      }
+    ]
+  }
+{% endschema %}

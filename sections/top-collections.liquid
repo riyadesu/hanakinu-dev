@@ -1,0 +1,230 @@
+{{ 'section-top-collections.css' | asset_url | stylesheet_tag }}
+
+<section class="sm_only">
+  <ul class="bl_topCollections_sm">
+    {% for link in linklists.collections.links %}
+      <li>
+        <a href="{{ link.url }}">
+          <span>{{ link.title }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="5.035"
+              height="8.656"
+              viewBox="0 0 5.035 8.656">
+              <path
+                d="M4810.275,836.249l3.975-3.974,3.974,3.974"
+                transform="translate(836.602 -4809.922) rotate(90)"
+                fill="none"
+                stroke="#573a3a"
+                stroke-width="1" />
+            </svg>
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="ly_topCollectionsWrapper">
+  <div class="ly_topCollections">
+    <div>
+      <ul class="bl_topCollections_md">
+        {% for link in linklists.collections.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="5.035"
+                height="8.656"
+                viewBox="0 0 5.035 8.656">
+                <path
+                  d="M4810.275,836.249l3.975-3.974,3.974,3.974"
+                  transform="translate(836.602 -4809.922) rotate(90)"
+                  fill="none"
+                  stroke="#573a3a"
+                  stroke-width="1" />
+              </svg>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      {% for block in section.blocks %}
+        {% if block.type == 'banner' %}
+          <div class="md_only bl_bannerMin">
+            {% if block.settings.banner_image %}
+              <a href="{{ block.settings.banner_url }}">
+                <img
+                  src="{{ block.settings.banner_image | image_url }}"
+                  alt="banner"
+                  width=""
+                  height="">
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if block.type == 'calendar' %}
+          <div id="calendar-container" class="bl_calendar">
+            <h2>2024年 11月</h2>
+            <div
+              id="calendar"
+              data-holiday-sunday="{{ block.settings.holiday_sunday }}"
+              data-holiday-monday="{{ block.settings.holiday_monday }}"
+              data-holiday-tuesday="{{ block.settings.holiday_tuesday }}"
+              data-holiday-wednesday="{{ block.settings.holiday_wednesday }}"
+              data-holiday-thursday="{{ block.settings.holiday_thursday }}"
+              data-holiday-friday="{{ block.settings.holiday_friday }}"
+              data-holiday-saturday="{{ block.settings.holiday_saturday }}"
+              data="{{ block.settings.holidays }}"></div>
+            <h2>2024年 12月</h2>
+            <div id="next-month-calendar" data="{{ block.settings.next_month_holidays }}"></div>
+            <p class="bl_calendarHint">
+              <span>黄色の日</span>は定休日になります。<br> ※ご注文は24時間年中無休で受け付けております。</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="ly_topCollections_showcase">
+      {% for block in section.blocks %}
+        {% if block.type == 'collection' %}
+          {% assign selected_collection = collections[block.settings.selected_collection] %}
+          {% if selected_collection and selected_collection.products.size > 0 %}
+            <div class="bl_topShowcase">
+              <h2 class="bl_topShowcaseHeading">{{ selected_collection.title }}</h2>
+              <ul class="bl_topShowcaseList">
+                {% for product in selected_collection.products limit: 4 %}
+                  <li class="bl_topShowcase_product">
+                    <a href="{{ product.url }}">
+                      <div class="bl_topShowcase_productImg">
+                        <img
+                          src="{{ product.featured_image | image_url }}"
+                          alt="{{ product.title }}"
+                          width=""
+                          height="">
+                      </div>
+                      <h4>{{ product.title }}</h4>
+                      <p>{{ product.price | money }}{% unless product.taxable %}（税込）{% endunless %}
+                      </p>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+              <a href="{{ selected_collection.url }}" class="el_btn">
+                <span class="el_btnImg">{% render 'btn-flower' %}</span>
+                MORE
+                <span class="el_btnArrow sm_only">{% render 'btn-arrow' %}</span>
+              </a>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="bl_collectionsFlower md_only">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0909/3290/4241/files/collections-flower.svg?v=1732582871"
+      alt=""
+      width=""
+      height="">
+  </div>
+</section>
+
+<script src="{{ 'calendar.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+  {
+    "name": "トップコレクション",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "コレクションのショーケース",
+        "settings": [
+          {
+            "type": "collection",
+            "label": "コレクションを選択",
+            "id": "selected_collection",
+            "info": "表示したいコレクションを選択してください。"
+          }
+        ]
+      },
+      {
+        "type": "banner",
+        "name": "バナーブロック",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "バナー画像"
+          },
+          {
+            "type": "url",
+            "id": "banner_url",
+            "label": "バナーURL"
+          }
+        ]
+      },
+      {
+        "type": "calendar",
+        "name": "カレンダーの設定",
+        "settings": [
+          {
+            "type": "text",
+            "label": "休日の日付",
+            "id": "holidays",
+            "default": "2024-10-10,2024-10-15",
+            "info": "カンマで区切って休日の日付を入力してください (例: 2024-10-10,2024-10-15)"
+          },
+          {
+            "type": "checkbox",
+            "label": "日曜日を休日として設定",
+            "id": "holiday_sunday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "月曜日を休日として設定",
+            "id": "holiday_monday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "火曜日を休日として設定",
+            "id": "holiday_tuesday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "水曜日を休日として設定",
+            "id": "holiday_wednesday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "木曜日を休日として設定",
+            "id": "holiday_thursday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "金曜日を休日として設定",
+            "id": "holiday_friday",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "label": "土曜日を休日として設定",
+            "id": "holiday_saturday",
+            "default": false
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "トップコレクション",
+        "category": "カスタム"
+      }
+    ]
+  }
+{% endschema %}

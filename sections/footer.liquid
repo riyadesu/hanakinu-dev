@@ -400,7 +400,7 @@
         <p><span></span>店舗情報</p>
       </div>
       <div class="bl_footerShop_img">
-        <img src="{{ 'img-footer-shop.webp' | asset_url }}" alt="" />
+        <img src="{{ 'img-footer-shop.webp' | asset_url }}" alt="" width="" height=""/>
         <span class="el_bgPetals"
           ><img
             src="https://cdn.shopify.com/s/files/1/0909/3290/4241/files/footer-shop-petals-bg.svg?v=1732238942"
@@ -411,45 +411,26 @@
       </div>
       <div class="bl_footerShop_cont">
         <ul class="bl_footerShop_contList">
+          {% for link in linklists.shop-location.links %}
           <li class="js_shopList">
             <p>
-              岐阜県の店舗
+              {{ link.title }}
               <span class="bl_footerShop_contList_btn">
                 <span></span>
                 <span></span>
               </span>
             </p>
+            {% if link.links.size > 0 %}
             <ul class="bl_footerShop_contSubList">
-              <li>海津本店</li>
-              <li>イオンモール大垣店</li>
+              {% for sublink in link.links %}
+              <li>
+                <a href="{{ sublink.url }}" title="{{ sublink.title }}">{{ sublink.title }}</a>
+              </li>
+              {% endfor %}
             </ul>
+            {% endif %}
           </li>
-          <li class="js_shopList">
-            <p>
-              愛知県の店舗
-              <span class="bl_footerShop_contList_btn">
-                <span></span>
-                <span></span>
-              </span>
-            </p>
-            <ul class="bl_footerShop_contSubList">
-              <li>海津本店</li>
-              <li>イオンモール大垣店</li>
-            </ul>
-          </li>
-          <li class="js_shopList">
-            <p>
-              三重県の店舗
-              <span class="bl_footerShop_contList_btn">
-                <span></span>
-                <span></span>
-              </span>
-            </p>
-            <ul class="bl_footerShop_contSubList">
-              <li>海津本店</li>
-              <li>イオンモール大垣店</li>
-            </ul>
-          </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -537,6 +518,7 @@
 
 </footer>
 
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'index.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}

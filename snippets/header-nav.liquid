@@ -1,0 +1,31 @@
+<div class="bl_headerNav">
+  <div class="el_hamb el_hambClose js_hambClose">
+    <span></span>
+    <span></span>
+  </div>
+  <div>
+    {% render 'logo-nav' %}
+  </div>
+  <ul class="bl_headerList">
+    {% for link in linklists.nav-list.links %}
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="bl_headerBtns">
+    <a href="">LINEで来店予約</a>
+    <a href="">振袖カタログ</a>
+  </div>
+  <div class="bl_headerSns">
+    <a href="">{% render 'icon-insta' %}</a>
+    <a href="">{% render 'icon-x' %}</a>
+  </div>
+  <a href="" class="bl_headerBanner">
+    <img
+      src="{{  'festa.webp' |  asset_url}}"
+      alt=""
+      width=""
+      height="">
+  </a>
+</div>
