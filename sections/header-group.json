@@ -8,7 +8,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "ショップのアナウンス",
             "link": ""
           }
         }
@@ -16,9 +16,8 @@
       "block_order": [
         "announcement-bar-0"
       ],
-      "disabled": true,
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1f5571d5-2180-498c-81a8-ce6b0147af28",
         "show_line_separator": true,
         "show_social": false,
         "auto_rotate": false,

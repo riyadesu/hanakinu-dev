@@ -128,7 +128,7 @@
       {% endfor %}
 
       {{ scheme_classes | prepend: 'body' }} {
-        color: rgba(var(--color-foreground), 0.75);
+        color: rgba(var(--color-foreground), 1);
         background-color: rgb(var(--color-background));
       }
 
@@ -141,6 +141,7 @@
 
         --font-heading-family: "HannnariMincho"
         , serif;
+
         
         {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};

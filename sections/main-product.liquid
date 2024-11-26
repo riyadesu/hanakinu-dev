@@ -1,6 +1,6 @@
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding  color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -98,7 +98,7 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
+                  <h2>{{ product.title | escape }}</h2>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -191,12 +191,12 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
-              {%- when 'description' -%}
+              {% comment %} {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -396,6 +396,7 @@
                       </span>
                     {%- endif -%}
                   </div>
+                  個
                   {%- if product.quantity_price_breaks_configured? -%}
                     <volume-pricing class="parent-display" id="Volume-{{ section.id }}">
                       {%- if product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
@@ -662,6 +663,13 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
+
+          {%- if product.metafields.custom._desc_min != blank -%}
+            <p class="product__desk-min">
+              {{ product.metafields.custom._desc_min | newline_to_br }}
+            </p>
+          {% endif %}
+
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -710,6 +718,19 @@
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
 
+    {%- for block in section.blocks -%}
+      {% case block.type %}
+        {% when 'description' %}
+          {%- if product.description != blank -%}
+            <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+              {{ product.description }}
+            </div>
+          {%- endif -%}
+      {% endcase %}
+    {% endfor %}
+
+    
+
     {%- liquid
       if product.selected_or_first_available_variant.featured_media
         assign seo_media = product.selected_or_first_available_variant.featured_media
@@ -721,6 +742,13 @@
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>
+  </div>
+  <div class="bl_topFlower md_only">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0909/3290/4241/files/top-flower.svg?v=1732525363"
+      alt=""
+      width=""
+      height="">
   </div>
 </product-info>
 

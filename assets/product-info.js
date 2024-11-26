@@ -242,6 +242,13 @@ if (!customElements.get('product-info')) {
       updateMedia(html, variantFeaturedMediaId) {
         if (!variantFeaturedMediaId) return;
 
+        if (this.querySelector('media-gallery').getAttribute('has_variant') === 'true') {
+          const mediaGallerySource = this.querySelector('media-gallery');
+          const mediaGalleryDestination = html.querySelector(`media-gallery`);
+          mediaGallerySource.outerHTML = mediaGalleryDestination.outerHTML;
+          return;
+        }
+
         const mediaGallerySource = this.querySelector('media-gallery ul');
         const mediaGalleryDestination = html.querySelector(`media-gallery ul`);
 

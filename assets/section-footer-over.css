@@ -253,6 +253,8 @@
   width: 40%;
   height: auto;
   max-width: 415px;
+  position: relative;
+  z-index: 1;
 }
 
 .bl_footerMain_list {
@@ -302,7 +304,7 @@
 
 @media screen and (min-width: 768px) {
   .ly_footer {
-    margin-top: 150px;
+    margin-top: 100px;
   }
 
   /*
@@ -359,7 +361,6 @@
     column-gap: 8%;
     row-gap: 80px;
     max-width: 1186px;
-    margin-right: 0;
     padding-inline-end: 0;
   }
 

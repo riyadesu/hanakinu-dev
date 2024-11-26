@@ -1,5 +1,9 @@
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "nav-breadcrumbs",
+      "settings": {}
+    },
     "top_swiper_Uiat8k": {
       "type": "top-swiper",
       "blocks": {
@@ -117,6 +121,7 @@
     }
   },
   "order": [
+    "breadcrumbs",
     "top_swiper_Uiat8k",
     "top_collections_c9qDKw"
   ]

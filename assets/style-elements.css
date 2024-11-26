@@ -172,6 +172,12 @@ html {
   letter-spacing: 0.1em;
   font-family: 'AdobeGaramondPro', serif;
   gap: 18px;
+  transition: 0.3s ease;
+}
+
+.el_btn:hover,
+.el_btn:focus {
+  opacity: 0.7;
 }
 
 .el_btnImg,
